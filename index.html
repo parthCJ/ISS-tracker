@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISS Tracker</title>
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;700&display=swap" rel="stylesheet">
     <style>
@@ -67,7 +68,7 @@
             padding: 15px 30px;
             font-size: 24px;
             cursor: pointer;
-            background-color: #1a1a1a; /* Dark, almost black background */
+            background-color: #1a1a1a;
             color: white;
             border: none;
             border-radius: 50px;
@@ -75,24 +76,24 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             font-family: 'JetBrains Mono', monospace;
             font-weight: 400;
-            background-image: linear-gradient(145deg, #2c2c2c, #1a1a1a); /* Adds a subtle shine */
+            background-image: linear-gradient(145deg, #2c2c2c, #1a1a1a);
         }
         #start-button:hover {
             background-color: #2c2c2c;
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-            background-image: linear-gradient(145deg, #3a3a3a, #2c2c2c); /* Lighter shine on hover */
+            background-image: linear-gradient(145deg, #3a3a3a, #2c2c2c);
         }
         #astronaut-list {
             position: absolute;
             top: 10px;
-            right: -220px; /* Start off-screen */
-            background-color: rgba(255, 255, 255, 0.6); /* Changed back from 0.4 to 0.6 */
+            right: -220px;
+            background-color: rgba(255, 255, 255, 0.6);
             padding: 10px;
             border-radius: 5px;
             z-index: 1000;
             max-width: 200px;
-            transition: right 0.5s ease-in-out; /* Add smooth transition */
+            transition: right 0.5s ease-in-out;
             font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
         }
@@ -110,7 +111,7 @@
         }
         #astronaut-list ul li {
             font-family: 'JetBrains Mono', monospace;
-            font-weight: 100; /* This sets it to the thinnest available weight */
+            font-weight: 100;
         }
         #astronaut-list ul li a {
             color: inherit;
@@ -132,7 +133,7 @@
         }
         #ist-time {
             position: absolute;
-            top: 100%; /* Position it below the astronaut list */
+            top: 100%;
             right: 10px;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 5px 10px;
@@ -145,7 +146,7 @@
             display: block;
             width: 100%;
             padding: 10px;
-            margin-top: 10px; /* Increased margin to separate it from the astronaut list */
+            margin-top: 10px;
             background-color: #1a1a1a;
             color: white;
             border: none;
@@ -155,12 +156,10 @@
             font-weight: 400;
             transition: all 0.3s ease;
         }
-
         #know-iss-button:hover {
             background-color: #2c2c2c;
             transform: scale(1.05);
         }
-
         .ocean-label {
             color: #0077be;
             font-weight: bold;
@@ -194,7 +193,19 @@
         <div id="ist-time"></div>
     </div>
 
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Your custom script -->
     <script src="iss_tracker.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // This ensures that the iss_tracker.js script runs after the DOM is fully loaded
+            if (typeof initializeISSTracker === 'function') {
+                initializeISSTracker();
+            } else {
+                console.error('initializeISSTracker function not found. Make sure iss_tracker.js is loaded correctly.');
+            }
+        });
+    </script>
 </body>
 </html>
