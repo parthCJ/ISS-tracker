@@ -2,5 +2,8 @@
   "dependencies": {
     "express": "^4.21.0",
     "leaflet": "^1.9.4"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
