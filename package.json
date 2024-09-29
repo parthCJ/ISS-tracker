@@ -4,6 +4,6 @@
     "leaflet": "^1.9.4"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node iss_tracker.js"
   }
 }
