@@ -4,7 +4,7 @@
     "leaflet": "^1.9.4"
   },
   "scripts": {
-    "start": "node iss_tracker.js"
-      "install": "npm install --omit=dev"
+    "start": "node iss_tracker.js",
+    "install": "npm install --omit=dev"
   }
 }
